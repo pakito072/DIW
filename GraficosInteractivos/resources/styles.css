@@ -9,9 +9,3 @@
 .bg-dark{
     --bs-bg-opacity: 0.9;
 }
-
-
-.shadow-lg{
-    box-shadow: 0 1rem 3rem rgba(black, 0.175);
-}
-
