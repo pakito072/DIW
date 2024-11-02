@@ -53,32 +53,43 @@
     <script>
 
         function updateImages() {
+
             const imageList = document.getElementById("imageList");
             const imageContainer = document.getElementById("imageContainer");
+
+            // Obtencion del numero de imagenes
             const numImages = parseInt(imageList.value);
             imageContainer.innerHTML = "";
 
+            // Creación de las filas y celdas
             for (let i = 1; i <= numImages; i++) {
                 const row = document.createElement("tr");
 
+                //Crea la celda de la imagen
                 const imgCell = document.createElement("td");
                 const img = document.createElement("img");
 
+                //Atributos de la imagen
                 img.src = `https://picsum.photos/id/${i}/300/200?random=${Math.random()}`;
                 img.alt = `Imagen ${i}`;
                 img.className = "img-fluid rounded";
                 img.loading = "lazy";
                 imgCell.appendChild(img);
 
+                // Crea la celda del titulo
                 const titleCell = document.createElement("td");
                 titleCell.textContent = `Imagen ${i}`;
 
+                // Crea la celda de la descripción
                 const descCell = document.createElement("td");
                 descCell.textContent = `Descripción de la imagen ${i}`;
 
+                // Agrega las celdas a la fila
                 row.appendChild(imgCell);
                 row.appendChild(titleCell);
                 row.appendChild(descCell);
+
+                //Añade la fila al imagenContainer
                 imageContainer.appendChild(row);
             }
         }
