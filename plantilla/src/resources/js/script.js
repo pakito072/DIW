@@ -23,16 +23,16 @@ function updateStatusServer() {
 //Lista de canciones
 const songs = [
   {
-    audio: "",
-    video: ""
+    audio: "/plantilla/src/assets/audio/",
+    video: "/plantilla/src/assets/img/"
   },
   {
-    audio: "",
-    video: ""
+    audio: "/plantilla/src/assets/audio/",
+    video: "/plantilla/src/assets/img/"
   },
   {
-    audio: "",
-    video: ""
+    audio: "/plantilla/src/assets/audio/",
+    video: "/plantilla/src/assets/img/"
   }
 ]
 
@@ -128,10 +128,9 @@ document.addEventListener("keydown", function (event){
 
 }) 
 
-
 //Iniciar musica al entrar a la pagina
 window.onload = function() {
-  playSong()
+  switchSong()
   setInterval(updateStatusServer, 3000)
 }
 
