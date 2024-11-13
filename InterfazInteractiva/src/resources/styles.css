@@ -1,0 +1,29 @@
+.btn-custom {
+    background-color: rgba(0, 0, 0, 0.7); 
+    border: 2px solid white; 
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold; 
+}
+
+.btn-custom:hover {
+    background-color: orange; 
+    color: black; 
+    border: 2px solid white; 
+}
+
+.social-links a {
+    color: white; 
+    font-weight: bold; 
+    text-decoration: none; 
+    transition: color 0.3s; 
+}
+
+.social-links a:hover {
+    color: orange;
+}
+
+.bg-trans {
+    background-color: rgba(0, 0, 0, 0.7);
+
+}
+
