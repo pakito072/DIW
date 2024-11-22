@@ -1,0 +1,29 @@
+.bg-gr{
+  background: rgb(205,42,40);
+  background: linear-gradient(45deg, rgba(205,42,40,1) 0%, rgba(126,38,143,1) 100%);   background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.bg-dark{
+  --bs-bg-opacity: 0.80;
+}
+
+.roboto {
+  font-family: "Roboto Slab", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.cont-h {
+  height: 35vh;
+}
+
+
+
+
+
+
+
+
+/*Este archivo ha sido creado por: Francisco Tejero Angel*/
