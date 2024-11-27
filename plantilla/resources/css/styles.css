@@ -19,6 +19,10 @@
   height: 35vh;
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
 
 
 
