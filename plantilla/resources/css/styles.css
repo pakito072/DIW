@@ -17,9 +17,15 @@
 
 .cont-h {
   height: 35vh;
+  scrollbar-color: #ab2854 rgba(0,0,0,0);
+}
+
+span {
+  width: auto;
 }
 
 .completed {
+  color: gray;
   text-decoration: line-through;
 }
 

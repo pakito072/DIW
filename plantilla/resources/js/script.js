@@ -1,15 +1,22 @@
-$(document).ready(function() {
-  const taskRow = $(this).closest("li")
-  const taskText = taskRow.find("span").text()
-  const editBtn = $("#editBtn")
-
-  $("#addBtn").click(function(){
+$(document).ready(function () {
+  
+  function getTask (element) {
     const task = $("#taskInput").val().trim()
+    const taskRow = $(element).closest("li")
+    const taskSpan = taskRow.find("span")
+    const taskText = taskSpan.text()
+    
+    return {task, taskRow, taskSpan, taskText}
+  }
+
+  $("#addBtn").click(function () {
+    const {task} = getTask(this)
+
     if (task) {
       const list =
-      `
-        <li class="list-group-item d-flex justify-content-between align-items-center bg-dark">
-          <span>${task}</span>
+        `
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span class="text-wrap">${task}</span>
           <div>
             <button class="btn btn-success btn-sm" id="completeBtn">Completar</button>
             <button class="btn btn-warning btn-sm" id="editBtn">Editar</button>
@@ -22,41 +29,30 @@ $(document).ready(function() {
     }
   })
 
-  $(document).on("click", "#completeBtn", function(){
-    taskText.toogleClass("completed")
+  $(document).on("click", "#completeBtn", function () {
+    const {taskRow, taskSpan} = getTask(this)
+    const editBtn = taskRow.find("#editBtn")
 
-    if (taskText.hasClass("completed")) {
+    taskSpan.toggleClass("completed")
+    if (taskSpan.hasClass("completed")) {
       editBtn.addClass("disabled")
-      taskRow.addClass("disabled")
     } else {
       editBtn.removeClass("disabled")
-      taskRow.removeClass("disabled")
     }
   })
 
-  $(document).on("click", "#editBtn", function(){
-  const newTaskText = prompt("Ingrese la nueva tarea: ", taskText)
-      if (newTaskText) {
-        taskRow.find("span").text(newTaskText)
-      }
+  $(document).on("click", "#editBtn", function () {
+    const {taskRow, taskText} = getTask(this)
+    const newTaskText = prompt("Ingrese la nueva tarea: ", taskText)
+
+    if (newTaskText) {
+      taskRow.find("span").text(newTaskText)
+    }
   })
 
-  $(document).on("click", "#deleteBtn", function(){
-    $(this).closest("li").remove()
-  })
-
-  $("#filterAll").click(function(){
-    $("#taskList li").show()
-  })
-
-  $("#filterCompleted").click(function(){
-    $("#taskList li").hide()
-    $("#taskList li:hasClass(.completed)").show()
-  })
-
-  $("#filterPending").click(function(){
-    $("#taskList li").hide()
-    $("#taskList li:not(:hasClass(.completed))").show()
+  $(document).on("click", "#deleteBtn", function () {
+    const {taskRow} = getTask(this)
+    taskRow.remove()
   })
 })
 
