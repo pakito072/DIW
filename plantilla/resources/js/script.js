@@ -9,6 +9,15 @@ $(document).ready(function () {
     return {task, taskRow, taskSpan, taskText}
   }
 
+  $("#taskInput").on("input", function() {
+    const {task} = getTask(this)
+    if (task !== "") {
+      $("#addBtn").removeClass("disabled")
+    }else {
+      $("#addBtn").addClass("disabled");
+  }
+  })
+
   $("#addBtn").click(function () {
     const {task} = getTask(this)
 
@@ -17,7 +26,7 @@ $(document).ready(function () {
         `
         <li class="list-group-item d-flex justify-content-between align-items-center">
           <span class="text-wrap">${task}</span>
-          <div>
+          <div class="btn-group">
             <button class="btn btn-success btn-sm" id="completeBtn">Completar</button>
             <button class="btn btn-warning btn-sm" id="editBtn">Editar</button>
             <button class="btn btn-danger btn-sm" id="deleteBtn">Eliminar</button>
@@ -26,7 +35,9 @@ $(document).ready(function () {
       `
       $("#taskList").append(list)
       $("#taskInput").val("")
+      $("#addBtn").addClass("disabled");
     }
+    console.log()
   })
 
   $(document).on("click", "#completeBtn", function () {
@@ -42,18 +53,51 @@ $(document).ready(function () {
   })
 
   $(document).on("click", "#editBtn", function () {
-    const {taskRow, taskText} = getTask(this)
-    const newTaskText = prompt("Ingrese la nueva tarea: ", taskText)
+    const {taskRow, taskSpan} = getTask(this)
+    const actionsBtn = taskRow.find(".btn")
+    const instruction = taskRow.find(".instruction")
 
-    if (newTaskText) {
-      taskRow.find("span").text(newTaskText)
-    }
+    actionsBtn.addClass("disabled")
+    taskSpan.attr("contentEditable", "true").focus()
+    instruction.show()
+
+    taskSpan.on("keypress", function(event) {
+      if (event.key === "Enter") {
+        $(this).attr("contenteditable", "false")
+        instruction.hide()
+        actionsBtn.removeClass("disabled")
+        $(this).off("keypress")
+      }
+    })
   })
 
   $(document).on("click", "#deleteBtn", function () {
     const {taskRow} = getTask(this)
+    const confirmDelete = confirm("¿Estás seguro de eliminar esta tarea?")
+
+    if (confirmDelete) {
     taskRow.remove()
+    }
   })
+
+  $("#filterAll").click(function() {
+    $("#taskList li").show()
+    console.log()
+  });
+
+  $("#filterCompleted").click(function() {
+    $("#taskList li").hide();
+    $("#taskList li").filter(function() {
+      return $(this).find("span").hasClass("completed")
+    }).show()
+  });
+
+  $("#filterPending").click(function() {
+    $("#taskList li").hide();
+    $("#taskList li").filter(function() {
+      return !$(this).find("span").hasClass("completed")
+    }).show()
+  });
 })
 
 
