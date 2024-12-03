@@ -29,6 +29,10 @@ span {
   text-decoration: line-through;
 }
 
+.tooltip {
+  border-radius: 10px;
+  background-color: rgba(51, 51, 51, 0.75);
+}
 
 
 

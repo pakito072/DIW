@@ -43,12 +43,15 @@ $(document).ready(function () {
   $(document).on("click", "#completeBtn", function () {
     const {taskRow, taskSpan} = getTask(this)
     const editBtn = taskRow.find("#editBtn")
+    const completeBtn = taskRow.find("#completeBtn")
 
     taskSpan.toggleClass("completed")
     if (taskSpan.hasClass("completed")) {
       editBtn.addClass("disabled")
+      completeBtn.text("Descompletar")
     } else {
       editBtn.removeClass("disabled")
+      completeBtn.text("Completar")
     }
   })
 
@@ -61,11 +64,18 @@ $(document).ready(function () {
     taskSpan.attr("contentEditable", "true").focus()
     instruction.show()
 
+    taskSpan.attr("data-bs-toggle", "tooltip")
+    taskSpan.attr("title", "Presiona Enter para confirmar los cambios")
+    const tooltip = new bootstrap.Tooltip(taskSpan[0])
+
+    tooltip.show()
+
     taskSpan.on("keypress", function(event) {
       if (event.key === "Enter") {
         $(this).attr("contenteditable", "false")
         instruction.hide()
         actionsBtn.removeClass("disabled")
+        tooltip.hide()
         $(this).off("keypress")
       }
     })
@@ -82,22 +92,24 @@ $(document).ready(function () {
 
   $("#filterAll").click(function() {
     $("#taskList li").show()
-    console.log()
-  });
+
+  })
 
   $("#filterCompleted").click(function() {
-    $("#taskList li").hide();
+
+    $("#taskList li").hide()
     $("#taskList li").filter(function() {
       return $(this).find("span").hasClass("completed")
     }).show()
-  });
+  })
 
   $("#filterPending").click(function() {
+
     $("#taskList li").hide();
     $("#taskList li").filter(function() {
       return !$(this).find("span").hasClass("completed")
     }).show()
-  });
+  })
 })
 
 
