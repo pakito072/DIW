@@ -19,40 +19,76 @@
 </head>
 
 <body class="dark-theme roboto">
-  <header>
-    <h1 class="text-center">Bienvenido seas usuario promedio😊</h1>
+  <header class="w-50 mx-auto mt-5 p-3 rounded-4">
+    <h1 class="text-center">Buenos días usuario promedio😊</h1>
     <nav class="navbar navbar-expand justify-content-center grid gap-2">
-      <button class="btn">Cambiar tema <span class="bg-light rounded-3">🌞</span></button>
-      <button class="btn">Cambiar tamaño <span class="bg-light rounded-3">➕</span></button>
+      <div class="d-flex flex-column align-items-center">
+        <div class="d-flex gap-2 mb-2">
+          <button class="btn">Cambiar tema <span class="bg-light rounded-3">🌞</span></button>
+          <button class="btn">Cambiar tamaño <span class="bg-light rounded-3">➕</span></button>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-sm">Ir abajo <span class="bg-light rounded-2">⬇️</span></button>
+          <button class="btn btn-sm">Ir abajo <span class="bg-light rounded-2">⬇️</span></button>
+          <button class="btn btn-sm">Ir abajo <span class="bg-light rounded-2">⬇️</span></button>
+        </div>
+      </div>
     </nav>
   </header>
 
-  <div class="container">
-    <div class="grid gap-0 row-gap-3">
-      <div class="">Hola</div>
-      <div class="">alo</div>
+  <main class="m-5">
+    <div class="mb-3 py-2 px-3 rounded-3 w-75 mx-auto" id="box">
+      <div class="row">
+        <div class="col-auto align-self-center w-25">
+          <button class="btn btn-">Cambiar color del cuadro <span class="bg-light rounded-3">🎨</span></button>
+        </div>
+        <div class="col">
+          <div class="rounded w-100 h-100" id="rectangle"></div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="container bg-white"></div>
+    <div class="mb-3 py-2 px-3 w-50 mx-auto rounded-3" id="box">
+      <div>
+        <div class="text-center">
+          <h1>Llevas <span>0</span> clicks datos en la web :3</h1>
+        </div>
+      </div>
 
-  <footer class="fixed-bottom ">
+    </div>
+
+  </main>
+
+  <footer class="w-50 mx-auto pt-3 rounded-top-4">
     <div class="row justify-content-center">
-      <ul class="col-auto list-unstyled">
-        <h4>Este es un pie de página</h4>
+      <ul class="col-auto list-unstyled text-center">
+        <h4 class="text-decoration-underline">Información de contacto</h4>
         <li>
-          Whatsapp
+          693777777
         </li>
         <li>
-          Whatsapp
+          correochorra@gmail.com
         </li>
-        <li>
-          Whatsapp
+        <li class="whatsapp">
+        </li>
+        <li class="instagram">
+        </li>
+        <li class="twitter">
+        </li>
+        <li class="telegram">
         </li>
       </ul>
-      <h1 class="col-auto">Este es un pie de página</h1>
+      <p class="col-auto fixed align-self-center text-center">
+        &copy; 2023 Francisco Tejero Angel.
+        <br>Todos los derechos reservados.
+        <br>Prohibida la reproducción total o parcial de los
+        <br>contenidos de esta página sin la autorización expresa del autor.
+      </p>
     </div>
   </footer>
+
+  <button class="btn m-4 position-fixed bottom-0 end-0">Volver al inicio</button>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js?v=1.0"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
