@@ -1,4 +1,37 @@
 
+function applyTheme(theme) {
+  const body = document.body
+  const themeEmoji = document.getElementById("theme")
+  if (theme === "light") {
+    body.classList.remove("dark-theme")
+    body.classList.add("light-theme")
+    themeEmoji.textContent = "🌜" // Emoji para el tema claro
+  } else {
+    body.classList.remove("light-theme")
+    body.classList.add("dark-theme")
+    themeEmoji.textContent = "🌞" // Emoji para el tema oscuro
+  }
+}
+
+// Aplicar el tema al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme") || "dark"
+  applyTheme(savedTheme)
+})
+
+// Lógica para cambiar entre tema oscuro y claro y guardar la preferencia en localStorage
+document.getElementById("changeTheme").addEventListener("click", function() {
+  const body = document.body
+  let newTheme
+  if (body.classList.contains("dark-theme")) {
+    newTheme = "light"
+  } else {
+    newTheme = "dark"
+  }
+  applyTheme(newTheme)
+  localStorage.setItem("theme", newTheme)
+})
+
 window.addEventListener("scroll", function() {
   const progressBar = document.querySelector(".progress .progress-bar")
 

@@ -19,19 +19,19 @@
 </head>
 
 <body class="dark-theme roboto user-select-none">
-  <header class="w-50 mx-auto mt-5 p-3 rounded-4">
+  <header class="w-50 mx-auto mt-5 p-3 rounded-4 box">
     <h1 class="text-center"><span id="title"></span> usuario promedio😊</h1>
     <nav class="navbar navbar-expand justify-content-center grid gap-2">
       <div class="d-flex flex-column align-items-center">
         <div class="d-flex gap-2 mb-2">
-          <button class="btn">Cambiar tema <span class="bg-light rounded-3">🌞</span></button>
+          <button class="btn" id="changeTheme">Cambiar tema <span class="bg-light rounded-3" id="theme">🌞</span></button>
           <button class="btn" id="sizeBtn">Cambiar tamaño <span class="bg-light rounded-3" id="emoji">➕</span></button>
           <button class="btn" id="voiceBtn">Narrar <span class="bg-light rounded-3">📢</span></button>
         </div>
         <div class="d-flex gap-2">
-          <a href="#abajo" class="btn btn-sm">Ir abajo <span class="bg-light rounded-2">⬇️</span></a>
-          <a href="#abajo" class="btn btn-sm">Ir abajo <span class="bg-light rounded-2">⬇️</span></a>
-          <a href="#abajo" class="btn btn-sm">Ir abajo <span class="bg-light rounded-2">⬇️</span></a>
+          <a href="#sillyCat" class="btn btn-sm">Ir al gato <span class="bg-light rounded-2">😺</span></a>
+          <a href="#sillyCat" class="btn btn-sm">Ir al gato <span class="bg-light rounded-2">😺</span></a>
+          <a href="#sillyCat" class="btn btn-sm">Ir al gato <span class="bg-light rounded-2">😺</span></a>
         </div>
       </div>
     </nav>
@@ -55,9 +55,17 @@
         </div>
     </div>
 
+    <div class="mb-3 px-3 py-3 rounded-3 w-75 mx-auto box text-center" id="sillyCat">
+      <div class="row justify-content-center">
+        <div class="col-auto align-self-center w-100">
+          <img src="https://cataas.com/cat" alt="Imagen de un gato" class="img-fluid rounded-3">
+        </div>
+      </div>
+    </div>
+
   </main>
 
-  <footer class="w-50 mx-auto pt-3 rounded-top-4" id="abajo">
+  <footer class="w-50 mx-auto pt-3 rounded-top-4 box">
     <div class="row justify-content-center">
       <ul class="col-auto list-unstyled text-center">
         <h4 class="text-decoration-underline">Información de contacto</h4>

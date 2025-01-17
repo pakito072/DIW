@@ -9,10 +9,6 @@ html {
   font-style: normal;
 }
 
-footer {
-  margin-top: 700px;
-}
-
 #colorArea {
   height: 450px;
 }
@@ -34,9 +30,22 @@ footer {
   display: none;
 }
 
+.box {
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+  transition: background-color 0.6s;
+}
+
+.box img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Tema oscuro */
 .dark-theme {
-  background-color: rgba(36, 36, 36, 0.993);
+  background-color: #242424fd;
   color: white;
 }
 
@@ -50,10 +59,6 @@ footer {
   transition: 0.3s;
 }
 
-.dark-theme header {
-  background-color: #333333;
-}
-
 .dark-theme .box {
   background-color: #333333;
 }
@@ -62,9 +67,42 @@ footer {
   background-color: #f1f1f1;
 }
 
-.dark-theme footer {
-  background-color: #333333;
+.dark-theme .progress-bar {
+  background-color: blueviolet;
 }
+
+/* Tema claro */
+.light-theme {
+  background-color: white;
+  color: deepskyblue;
+}
+
+.light-theme .btn {
+  background-color: deepskyblue;
+  color: white;
+}
+
+.light-theme .btn:hover {
+  background-color: darkblue;
+  transition: 0.3s;
+}
+
+.light-theme .box {
+  background-color: #e0e0e0;
+}
+
+.light-theme #colorArea {
+  background-color: #242424fd;
+}
+
+.light-theme .progress-bar {
+  background-color: deepskyblue;
+}
+
+body {
+  transition: background-color 0.6s, color 0.5s;
+}
+
 
 /*Iconos footer*/
 .whatsapp {
